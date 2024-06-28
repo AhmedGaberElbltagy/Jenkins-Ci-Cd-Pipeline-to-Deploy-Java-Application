@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     echo "building jar"
-                    // sh 'mvn packagee'
+                    sh 'mvn package'
                 }
             }
         }
