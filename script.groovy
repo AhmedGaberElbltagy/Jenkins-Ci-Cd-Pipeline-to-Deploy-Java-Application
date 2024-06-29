@@ -14,9 +14,9 @@ def buildJar() {
 // } 
 def buildImage() {
     withCredentials([usernamePassword(credentialsId: 'Nexus_Credientials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-        sh 'docker build -t java-maven-app .'
-        sh "echo $PASS | docker login -u $USER --password-stdin 192.168.206.129:8081"
-        sh 'docker push 192.168.206.129:8081/repository/java-maven-app:1.0'
+        sh 'docker build -t 192.168.206.129:8083/java-maven-app .'
+        sh "echo $PASS | docker login -u $USER --password-stdin 192.168.206.129:8083"
+        sh 'docker push 192.168.206.129:8083/repository/java-maven-app:1.0'
     }
 } 
 
