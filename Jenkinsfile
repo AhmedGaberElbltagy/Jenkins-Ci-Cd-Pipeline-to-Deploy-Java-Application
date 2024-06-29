@@ -23,16 +23,15 @@ pipeline {
         stage(" Build Jar ") {
             steps {
                 script {
-                    echo "building jar"
-                    sh 'mvn --version'
-                    sh 'mvn package'
+                    echo " Building The Application... "
+                    gv.buildImage()
                 }
             }
         }
         stage(" Build image ") {
             steps {
                 script {
-                    echo " Building The Image"
+                    echo "building the docker image..."
                     gv.buildImage()
                 }
             }

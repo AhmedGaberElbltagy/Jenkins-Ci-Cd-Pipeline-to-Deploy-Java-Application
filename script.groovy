@@ -1,10 +1,11 @@
+
+
+
 def buildJar() {
-    echo "building the application..."
     sh 'mvn package'
 } 
 
 def buildImage() {
-    echo "building the docker image..."
     withCredentials([usernamePassword(credentialsId: 'DockerHub_Credientials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
         sh 'docker build -t ahmedelbltagy/java-maven-app .'
         sh "echo $PASS | docker login -u $USER --password-stdin"
