@@ -5,22 +5,22 @@ pipeline {
         maven 'Maven'
     }
     stages {
-        stage("initialize") {
+        stage(" Initialize ") {
             steps {
                 script {
                     gv = load "script.groovy"
                 }
             }
         }
-        stage(" test App") {
+        stage(" Test App") {
             steps {
                 script {
-                    echo "building jar"
+                    echo "testing the Application"
                     sh 'mvn test'
                 }
             }
         }
-        stage("build jar") {
+        stage(" Build Jar ") {
             steps {
                 script {
                     echo "building jar"
@@ -29,11 +29,11 @@ pipeline {
                 }
             }
         }
-        stage("build image") {
+        stage(" Build image ") {
             steps {
                 script {
-                    echo "building image"
-                    //gv.buildImage()
+                    echo " Building The Image"
+                    gv.buildImage()
                 }
             }
         }
