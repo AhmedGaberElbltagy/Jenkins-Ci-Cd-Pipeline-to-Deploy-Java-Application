@@ -5,18 +5,27 @@ pipeline {
         maven 'Maven'
     }
     stages {
-        // stage("init") {
-        //     steps {
-        //         script {
-        //             gv = load "script.groovy"
-        //         }
-        //     }
-        // }
+        stage("initialize") {
+            steps {
+                script {
+                    gv = load "script.groovy"
+                }
+            }
+        }
+        stage(" test App") {
+            steps {
+                script {
+                    echo "building jar"
+                    sh 'mvn test'
+                }
+            }
+        }
         stage("build jar") {
             steps {
                 script {
                     echo "building jar"
                     sh 'mvn --version'
+                    sh 'mvn package'
                 }
             }
         }
