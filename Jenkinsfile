@@ -36,6 +36,14 @@ pipeline {
                 }
             }
         }
+        stage(" Push image to Nexus ") {
+            steps {
+                script {
+                    echo "Push image to Nexus"
+                    gv.PushImage()
+                }
+            }
+        }
         stage("deploy") {
             steps {
                 script {
