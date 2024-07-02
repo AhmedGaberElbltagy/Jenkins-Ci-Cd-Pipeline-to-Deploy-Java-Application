@@ -1,7 +1,6 @@
 #!/usr/bin/env groovy
 
-@Library('Jenkins-Shared_library') 
-
+@Library('Jenkins-Shared_library')
 def gv
 
 pipeline {
@@ -10,11 +9,18 @@ pipeline {
         maven 'Maven'
     }
     stages {
+        stage(" Initialize ") {
+            steps {
+                script {
+                    gv = load "script.groovy"
+                }
+            }
+        }
         stage(" Test App") {
             steps {
                 script {
                     echo "testing the Application"
-                    testApp()
+                    sh 'mvn test'
                 }
             }
         }
@@ -29,7 +35,7 @@ pipeline {
         stage(" Build image ") {
             steps {
                 script {
-                    echo "building the docker image ..."
+                    echo "building the docker image..."
                     buildImage 'java-maven-app'
                 }
             }
@@ -38,7 +44,7 @@ pipeline {
             steps {
                 script {
                     dockerLogin()
-                    pushImage 'java-maven-app'
+                    pushImagetoNexus 'java-maven-app'
                 }
             }
         }
