@@ -44,7 +44,7 @@ pipeline {
             steps {
                 script {
                     dockerLogin()
-                    pushImagetoNexus 'java-maven-app'
+                    pushImage 'java-maven-app'
                 }
             }
         }
