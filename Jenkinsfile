@@ -27,7 +27,7 @@ pipeline {
         stage(" Build image ") {
             steps {
                 script {
-                    echo "building the docker image..."
+                    echo "building the docker image ..."
                     buildImage 'java-maven-app'
                 }
             }
@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     dockerLogin()
-                    pushImagetoNexus 'java-maven-app'
+                    pushImage 'java-maven-app'
                 }
             }
         }
