@@ -43,7 +43,7 @@ pipeline {
         stage(" Push image to Nexus ") {
             steps {
                 script {
-                    
+                    dockerLogin()
                     pushImagetoNexus 'java-maven-app'
                 }
             }
