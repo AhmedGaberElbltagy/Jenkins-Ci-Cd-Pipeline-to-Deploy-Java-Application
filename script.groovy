@@ -1,9 +1,9 @@
 
 
 
-def buildJar() {
-    sh 'mvn package'
-} 
+// def buildJar() {
+//     sh 'mvn package'
+// } 
 
 // def buildImage() {
 //     withCredentials([usernamePassword(credentialsId: 'DockerHub_Credientials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
@@ -12,10 +12,10 @@ def buildJar() {
 //         sh 'docker push ahmedelbltagy/java-maven-app:1.1'
 //     }
 // } 
-def buildImage() {
-        sh 'docker build -t java-maven-app .'
+// def buildImage() {
+//         sh 'docker build -t java-maven-app .'
         
-    }
+//     }
 
 def PushImage(){
     withCredentials([usernamePassword(credentialsId: 'Nexus_Credientials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
