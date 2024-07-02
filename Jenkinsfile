@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     echo "building the docker image..."
-                    buildImage 'java-maven-app:jam-1.1'
+                    buildImage 'java-maven-app:1.1'
                 }
             }
         }
@@ -44,7 +44,7 @@ pipeline {
             steps {
                 script {
                     echo "Push image to Nexus"
-                    gv.PushImage()
+                    pushImagetoNexus 'java-maven-app:1.1'
                 }
             }
         }
