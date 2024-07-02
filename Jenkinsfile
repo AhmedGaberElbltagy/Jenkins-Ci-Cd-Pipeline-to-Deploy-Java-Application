@@ -9,23 +9,27 @@ pipeline {
         maven 'Maven'
     }
     stages {
-   
-        stage(" Test App") {
+         stage('Checkout') {
             steps {
-                script {
-                    testApp()
-                }
+                checkout scm
             }
         }
+        
         stage(" Build Jar ") {
             steps {
                 script {
-                    echo " Building The Application... "
                     buildJar()
                 }
             }
         }
-        stage(" Build image ") {
+        stage(" Test App") {
+            steps {
+                script {
+                   testApp()
+                }
+            }
+        }
+        stage(" Build Docker Image ") {
             steps {
                 script {
                     echo "building the docker image..."
@@ -33,7 +37,7 @@ pipeline {
                 }
             }
         }
-        stage(" Push image to Nexus ") {
+        stage(" Push Docker Image to Nexus ") {
             steps {
                 script {
                     dockerLogin()
@@ -44,8 +48,7 @@ pipeline {
         stage("deploy") {
             steps {
                 script {
-                    echo "deploying"
-                    
+                    deploy()
                 }
             }
         }
