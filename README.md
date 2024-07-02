@@ -2,7 +2,7 @@
 
 ## Pipeline
 
-![Pipeline](/images/pipeline-diagram.jpg)
+![Pipeline](/images/Project-Diagram.png)
 
 This project demonstrates a continuous integration and continuous delivery (CI/CD) pipeline for a Java application using Jenkins. The pipeline automates the build, test, artifact deployment, Docker image creation,
 
