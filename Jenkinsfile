@@ -28,7 +28,6 @@ pipeline {
             steps {
                 script {
                     echo " Building The Application... "
-                    // gv.buildImage()
                     buildJar()
                 }
             }
@@ -37,8 +36,7 @@ pipeline {
             steps {
                 script {
                     echo "building the docker image..."
-                    // gv.buildImage()
-                    buildImage()
+                    buildImage 'java-maven-app:jam-1.1'
                 }
             }
         }
