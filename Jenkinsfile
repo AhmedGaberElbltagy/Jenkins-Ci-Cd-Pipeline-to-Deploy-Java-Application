@@ -43,7 +43,6 @@ pipeline {
         stage(" Push image to Nexus ") {
             steps {
                 script {
-                    echo "Push image to Nexus"
                     pushImagetoNexus 'java-maven-app'
                 }
             }
