@@ -9,13 +9,13 @@ pipeline {
         maven 'Maven'
     }
     stages {
-        stage(" Initialize ") {
-            steps {
-                script {
-                    gv = load "script.groovy"
-                }
-            }
-        }
+        // stage(" Initialize ") {
+        //     steps {
+        //         script {
+        //             gv = load "script.groovy"
+        //         }
+        //     }
+        // }
         stage(" Test App") {
             steps {
                 script {
