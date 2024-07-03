@@ -1,4 +1,4 @@
-# Java CI/CD Pipeline with Jenkins
+# Jenkins CI/CD Pipeline to Deploy Java Application
 
 ## Pipeline
 
